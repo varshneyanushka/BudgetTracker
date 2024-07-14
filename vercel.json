@@ -1,16 +1,17 @@
 {
     "version": 2,
+    "name": "budget-tracker",
     "builds": [
-      {
-        "src": "server/server.js",
-        "use": "@vercel/node"
-      },
       {
         "src": "client/package.json",
         "use": "@vercel/static-build",
         "config": {
           "distDir": "client/build"
         }
+      },
+      {
+        "src": "server/server.js",
+        "use": "@vercel/node"
       }
     ],
     "routes": [
@@ -20,7 +21,7 @@
       },
       {
         "src": "/(.*)",
-        "dest": "/client/$1"
+        "dest": "/client/build/index.html"
       }
     ]
   }
