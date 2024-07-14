@@ -2,7 +2,7 @@ import React from 'react';
 const protocol = process.env.REACT_APP_PROTOCOL;
 const hostname = process.env.REACT_APP_HOSTNAME;
 const port = process.env.REACT_APP_PORT;
-const baseUrl = `${protocol}://${hostname}:${port}`;
+const baseUrl = `${protocol}://${hostname}`;
 
 export const ConfigContext = React.createContext({ baseUrl });
 
