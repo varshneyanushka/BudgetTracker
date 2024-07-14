@@ -2,7 +2,7 @@ import axios from "axios";
 const protocol = process.env.REACT_APP_PROTOCOL;
 const hostname = process.env.REACT_APP_HOSTNAME;
 const port = process.env.REACT_APP_PORT;
-const baseUrl = `${protocol}://${hostname}:${port}`;
+const baseUrl = `${protocol}://${hostname}`;
 
 class AuthService {
   constructor() {
