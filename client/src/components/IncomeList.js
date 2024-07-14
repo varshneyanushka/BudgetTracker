@@ -53,7 +53,7 @@ const IncomeList = () => {
     });
 
       setFormVisible(false);
-      fetchIncomes(); // Refresh the list
+      fetchIncomes(); 
     } catch (error) {
       console.error("Error submitting income:", error);
     }
@@ -71,7 +71,7 @@ const IncomeList = () => {
           Authorization: `Bearer ${authToken}`
         }
       });
-      fetchIncomes(); // Refresh the list
+      fetchIncomes();
     } catch (error) {
       console.error("Error deleting income:", error);
     } finally {

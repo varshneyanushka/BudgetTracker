@@ -15,40 +15,36 @@ function AuthProviderWrapper(props) {
   const updateUser = (updatedUser, newToken = null) => {
     setUser(updatedUser);
     if (newToken) {
-      storeToken(newToken); // Stores the new token in localStorage
-      authenticateUser(); // Re-authenticates the user to refresh user info across the app
+      storeToken(newToken); 
+      authenticateUser(); 
     }
   };
     
   const authenticateUser = () => { 
-    // Get the stored token from the localStorage
+   
     const storedToken = localStorage.getItem("authToken");
     
-    // If the token exists in the localStorage
+    
     if (storedToken) {
-      // axios.get(
-      //  `${API_URL}/auth/verify`, 
-      //  { headers: { Authorization: `Bearer ${storedToken}`} }
-      // )
+    
 
       return authService.verify()
         .then((response) => {
           const user = response.data;
-        // Update state variables        
+               
           setIsLoggedIn(true);
           setIsLoading(false);
           setUser(user);
         })
         .catch((error) => {
-          // If the server sends an error response (invalid token) ❌
-          // Update state variables        
+            
           setIsLoggedIn(false);
           setIsLoading(false);
           setUser(null);
         });
 
     } else {
-      // If the token is not available
+   
       setIsLoggedIn(false);
       setIsLoading(false);
       setUser(null);
@@ -58,7 +54,7 @@ function AuthProviderWrapper(props) {
   }
 
   const removeToken = () => {
-    // Upon logout, remove the token from the localStorage
+  
     localStorage.removeItem("authToken");
   }    
   
@@ -72,8 +68,7 @@ function AuthProviderWrapper(props) {
 
 
   useEffect(() => {
-    // Run the function after the initial render,
-    // after the components in the App render for the first time.
+    
     authenticateUser();
   }, []);
 
